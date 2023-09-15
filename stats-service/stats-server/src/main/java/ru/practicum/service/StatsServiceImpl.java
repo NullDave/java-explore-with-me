@@ -20,7 +20,10 @@ public class StatsServiceImpl implements StatsService {
     @Override
     @Transactional(readOnly = true)
     public List<ViewStatsDto> getAll(LocalDateTime start, LocalDateTime end, List<String> uris, Boolean unique) {
-        if(start.isAfter(end)) { throw new BadRequestException("start after end is incorrect"); }
+        if (start.isAfter(end)) {
+            throw new BadRequestException("start after end is incorrect");
+        }
+
         if (unique) {
             if (uris == null || uris.isEmpty()) {
                 return endpointHitRepository.findAllViewStatsWithUnique(start, end);
