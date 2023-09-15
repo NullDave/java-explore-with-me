@@ -1,6 +1,5 @@
 package ru.practicum.client;
 
-import lombok.Value;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
@@ -31,7 +30,7 @@ public class StatsClient extends BaseClient {
                 "unique", unique
         );
 
-        return get( "/stats?start={start}&end={end}&uris={uris}&unique={unique}", parameters);
+        return get("/stats?start={start}&end={end}&uris={uris}&unique={unique}", parameters);
     }
 
     public ResponseEntity<Object> create(EndpointHitDto endpointHitDto) {
