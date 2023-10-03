@@ -17,7 +17,7 @@ public class CommentDto {
     private Long userId;
     private Long eventId;
     private Boolean isDeleteByUser;
-    private Boolean modified;
+    private LocalDateTime modified;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = DATE_FORMAT_FOR_DTO)
     private LocalDateTime created;
 }

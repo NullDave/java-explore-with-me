@@ -67,7 +67,6 @@ public class CommentServiceImpl implements CommentService {
         comment.setUser(userRepository.findById(userId).orElseThrow(() -> new NotFoundException("Not found user by id:" + userId)));
         comment.setCreated(LocalDateTime.now());
         comment.setIsDeleteByUser(false);
-        comment.setModified(false);
         return commentMapper.toCommentDto(commentRepository.save(comment));
     }
 
@@ -80,7 +79,7 @@ public class CommentServiceImpl implements CommentService {
             throw new ContradictionException("User non-owner comment");
         }
         comment.setText(newCommentDto.getText());
-        comment.setModified(true);
+        comment.setModified(LocalDateTime.now());
         return commentMapper.toCommentDto(commentRepository.save(comment));
     }
 

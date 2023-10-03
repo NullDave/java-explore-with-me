@@ -29,7 +29,7 @@ public class Comment {
     @Column(name = "is_delete_by_user")
     private Boolean isDeleteByUser;
     @Column(name = "modified")
-    private Boolean modified;
+    private LocalDateTime modified;
     @ManyToOne
     @JoinColumn(name = "event_id")
     @OnDelete(action = OnDeleteAction.CASCADE)

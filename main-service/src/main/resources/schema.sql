@@ -49,7 +49,7 @@ create TABLE IF NOT EXISTS comments (
   user_id BIGINT NOT NULL,
   text VARCHAR(2000) NOT NULL,
   is_delete_by_user BOOLEAN NOT NULL,
-  modified BOOLEAN NOT NULL,
+  modified TIMESTAMP WITHOUT TIME ZONE,
   created TIMESTAMP WITHOUT TIME ZONE NOT NULL,
   CONSTRAINT pk_comment PRIMARY KEY (id),
   CONSTRAINT fk_comments_user_id FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
